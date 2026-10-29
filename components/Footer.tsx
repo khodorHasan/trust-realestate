@@ -20,14 +20,9 @@ export default function Footer() {
           <div className="flex flex-col items-start">
             <div className="flex flex-col md:flex-row items-center justify-center gap-1">
               <img
-                src="/logo-abtah.svg"
+                src="/trust-logo.svg"
                 alt="Logo"
-                className="w-12 md:w-14 mt-1 md:mt-0"
-              />
-              <img
-                src="/blue-typo-logo.svg"
-                alt="الأبطح للعقارات"
-                className="h-7 md:h-9 object-contain"
+                className="w-16 md:w-24 mt-1 md:mt-0"
               />
             </div>
             <p className="text-sm text-gray-600 font-regular leading-relaxed max-w-xs mt-2">
@@ -63,7 +58,7 @@ export default function Footer() {
                   href="#about"
                   className="hover:text-[var(--blue)] transition-colors duration-200"
                 >
-                  عن الأبطح للعقارات
+                  عن Trust Real Estate
                 </a>
               </li>
               <li>
@@ -86,36 +81,36 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <BsTelephone className="w-4 h-4 text-gray-700 flex-shrink-0" />
                 <a
-                  href="tel:+96181270436"
+                  href="tel:+96181500175"
                   className="hover:text-[var(--blue)] transition-colors dir-ltr"
                 >
-                  81270436
+                  81500175
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <FaWhatsapp className="w-4 h-4 text-gray-700 flex-shrink-0" />
                 <a
-                  href="https://wa.me/96181270436"
+                  href="https://wa.me/96181500175"
                   target="_blank"
                   rel="noreferrer"
                   className="hover:text-[var(--blue)] transition-colors dir-ltr"
                 >
-                  81270436
+                  81500175
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <FiMail className="w-4 h-4 text-gray-700 flex-shrink-0" />
                 <a
-                  href="mailto:alabtah.realestate@gmail.com"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSd0ifRLWCYE67VCnEMabufP5FTBObMPsYpK5Ov_i6eShrptBQ/viewform?pli=1"
                   className="hover:text-[var(--blue)] transition-colors dir-ltr"
                 >
-                  alabtah.realestate@gmail.com
+                  تقديم كمندوب عقارات
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <FiMapPin className="w-4 h-4 text-gray-700 flex-shrink-0 mt-1" />
                 <span className="leading-relaxed">
-                  لبنان - طرابلس خاصة والشمال عامّةً
+                  الضم والفرز - خلف حياة دونر
                 </span>
               </li>
             </ul>
@@ -138,7 +133,7 @@ export default function Footer() {
             </a>
 
             <a
-              href="https://wa.me/96181270436"
+              href="https://wa.me/96181500175"
               target="_blank"
               rel="noreferrer"
               aria-label="WhatsApp"
@@ -149,7 +144,8 @@ export default function Footer() {
           </div>{" "}
           {/* Left: Copyright Notice */}
           <p className="text-sm font-medium text-gray-500 text-center md:text-right">
-            جميع الحقوق محفوظة للأبطح للعقارات © {new Date().getFullYear()}
+            جميع الحقوق محفوظة لدى Trust Real Estate ©{" "}
+            {new Date().getFullYear()}
           </p>
         </div>
       </div>

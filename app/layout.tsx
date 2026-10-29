@@ -11,31 +11,31 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://abtahrealestate.com"), // Replace with your actual domain
+  metadataBase: new URL("https://trust-realestat.vercel.app"), // Replace with your actual domain
   title: {
-    default: "الأبطح للعقارات | ABTAH Real Estate - طرابلس وشمال لبنان",
-    template: "%s | الأبطح للعقارات",
+    default: "Trust Real Estate | Tripoli & North Lebanon",
+    template: "%s | Trust Real Estate",
   },
   description:
     "حلول عقارية متكاملة، بيع، شراء، وإيجار العقارات والأراضي في طرابلس وشمال لبنان.",
   keywords: [
-    "الأبطح للعقارات",
+    "Trust Real Estate",
     "عقارات طرابلس",
     "شقق للبيع طرابلس",
     "عقارات شمال لبنان",
     "أراضي للبيع طرابلس",
     "إيجار شقق طرابلس",
-    "ABTAH Real Estate",
+    "Trust Real Estate",
     "Tripoli Real Estate",
   ],
-  authors: [{ name: "الأبطح للعقارات" }],
-  creator: "الأبطح للعقارات",
-  publisher: "الأبطح للعقارات",
-  applicationName: "الأبطح للعقارات",
+  authors: [{ name: "Trust Real Estate" }],
+  creator: "Trust Real Estate",
+  publisher: "Trust Real Estate",
+  applicationName: "Trust Real Estate",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "الأبطح للعقارات",
+    title: "Trust Real Estate",
   },
   formatDetection: {
     telephone: false,
@@ -43,23 +43,23 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ar_LB",
-    url: "https://abtahrealestate.com",
-    title: "الأبطح للعقارات | ABTAH Real Estate",
+    url: "https://trust-realestate.vercel.app",
+    title: " Trust Real Estate",
     description:
       "حلول عقارية متكاملة في طرابلس وشمال لبنان - بيع، شراء، واستثمار.",
-    siteName: "الأبطح للعقارات",
+    siteName: "Trust Real Estate",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "الأبطح للعقارات - طرابلس وشمال لبنان",
+        alt: "Trust Real Estate, Tripoli and North Lebanon",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "الأبطح للعقارات | ABTAH Real Estate",
+    title: "Trust Real Estate",
     description: "حلول عقارية متكاملة في طرابلس وشمال لبنان",
     images: ["/og-image.jpg"],
   },

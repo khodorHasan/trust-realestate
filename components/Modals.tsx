@@ -151,7 +151,8 @@ export default function Modal({ open, onClose, type }: ModalProps) {
                 تم الإرسال بنجاح!
               </h3>
               <p className="text-muted text-sm leading-relaxed max-w-xs">
-                شكراً لك، سيتواصل معك فريق الأبطح للعقارات في أقرب وقت ممكن.
+                شكراً لك، سيتواصل معك فريق Trust Real Estate للعقارات في أقرب
+                وقت ممكن.
               </p>
               <button
                 onClick={handleClose}

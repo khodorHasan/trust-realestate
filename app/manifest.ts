@@ -2,8 +2,8 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "الأبطح للعقارات | ABTAH Real Estate",
-    short_name: "الأبطح للعقارات",
+    name: "Trust Real Estate",
+    short_name: "Trust Real Estate",
     description: "حلول عقارية متكاملة في طرابلس وشمال لبنان",
     start_url: "/",
     display: "standalone",

@@ -144,13 +144,6 @@ export default function PropertyDetail({
               alt="Logo"
               style={{ width: 44, height: "auto" }}
             />
-
-            <img
-              src="/blue-typo-logo.svg"
-              alt="الأبطح للعقارات"
-              className="object-contain"
-              style={{ height: 28 }}
-            />
           </div>
 
           {/* Share button (desktop) + hamburger (mobile) */}
@@ -379,7 +372,7 @@ export default function PropertyDetail({
             </div>
 
             <a
-              href={`https://wa.me/96181270436?text=${whatsappMsg}`}
+              href={`https://wa.me/96181500175?text=${whatsappMsg}`}
               target="_blank"
               rel="noreferrer"
               className="flex items-center justify-center gap-2.5 w-full text-white rounded-[14px] py-3.5 text-base font-bold no-underline mb-3"
@@ -390,7 +383,7 @@ export default function PropertyDetail({
             </a>
 
             <a
-              href="tel:+96181270436"
+              href="tel:+96181500175"
               className="flex items-center justify-center gap-2.5 w-full bg-[#f5f5f5] text-[#0e1f1a] rounded-[14px] py-3.5 text-base font-semibold no-underline"
             >
               <FiPhone size={18} />

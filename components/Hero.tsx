@@ -205,19 +205,9 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
               {/* Logo */}
               <div className="flex flex-col md:flex-row items-center justify-center gap-1">
                 <img
-                  src="/logo-abtah.svg"
+                  src="/trust-logo.svg"
                   alt="Logo"
-                  style={{ width: 44, height: "auto" }}
-                />
-                <img
-                  src="/typo-logo.svg"
-                  alt="الأبطح للعقارات"
-                  className="hidden md:block h-7 md:h-9 object-contain"
-                />
-                <img
-                  src="/blue-typo-logo.svg"
-                  alt="الأبطح للعقارات"
-                  className="block md:hidden h-7 md:h-9 object-contain"
+                  style={{ width: 72, height: "auto" }}
                 />
               </div>
 
