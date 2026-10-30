@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
   FiChevronDown,
@@ -8,6 +8,17 @@ import {
   FiMenu,
   FiChevronRight,
 } from "react-icons/fi";
+
+const HERO_SLIDES = [
+  {
+    desktop: "/hero/desktop-hero-banner.jpg",
+    mobile: "/hero/phone-hero-banner.jpg",
+  },
+  {
+    desktop: "/hero/desktop-hero-banner-2.webp",
+    mobile: "/hero/phone-hero-banner-2.webp", // يمكن تغييرها لصورة الموبايل الخاصة بالبانر الثاني أو استخدام نفس الصورة
+  },
+];
 
 const NAV_LINKS = [
   { label: "من نحن", id: "about" },
@@ -51,6 +62,18 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
   const [tab, setTab] = useState<"بيع" | "إيجار">("إيجار");
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Hero Slider State
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Auto-play interval for Hero Slider
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   // Desktop search state
   const [city, setCity] = useState("");
   const [type, setType] = useState("");
@@ -85,22 +108,20 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
     setStep(null);
   };
 
-  // Immediate selection & transitions (No keyboard triggering)
   const pickCity = (v: string) => {
     setMobileCity(v === "الكل" ? "" : v);
-    setStep(2); // الانتقال الفوري لنوع العقار
+    setStep(2);
   };
 
   const pickType = (v: string) => {
     setMobileType(v === "الكل" ? "" : v);
-    setStep(3); // الانتقال الفوري للسعر
+    setStep(3);
   };
 
   const pickPrice = (v: string) => {
     setMobilePrice(v);
   };
 
-  // Search redirection to results page
   const handleMobileSearch = () => {
     const query = new URLSearchParams();
     if (tab) query.set("type", tab === "بيع" ? "للبيع" : "للإيجار");
@@ -143,36 +164,49 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
           overflow: "hidden",
         }}
       >
-        {/* Desktop BG */}
-        <div
-          className="hidden md:block"
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: "url('/hero/desktop-hero-banner.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            zIndex: 0,
-          }}
-        />
-        {/* Mobile BG */}
-        <div
-          className="block md:hidden"
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: "url('/hero/phone-hero-banner.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            zIndex: 0,
-          }}
-        />
+        {/* ══ HERO SLIDER BACKGROUNDS ══ */}
+        {HERO_SLIDES.map((slide, index) => (
+          <div
+            key={slide.desktop}
+            style={{
+              position: "absolute",
+              inset: 0,
+              opacity: currentSlide === index ? 1 : 0,
+              transition: "opacity 1000ms ease-in-out",
+              zIndex: 0,
+            }}
+          >
+            {/* Desktop BG */}
+            <div
+              className="hidden md:block"
+              style={{
+                position: "absolute",
+                inset: 0,
+                backgroundImage: `url('${slide.desktop}')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            />
+            {/* Mobile BG */}
+            <div
+              className="block md:hidden"
+              style={{
+                position: "absolute",
+                inset: 0,
+                backgroundImage: `url('${slide.mobile}')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            />
+          </div>
+        ))}
+
         {/* Overlay */}
         <div
           style={{
             position: "absolute",
             inset: 0,
-            background: "rgba(20,35,50,0.22)",
+            background: "rgba(20,35,50,0.32)",
             zIndex: 1,
           }}
         />
@@ -737,6 +771,39 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
             </div>
           </div>
         </div>
+
+        {/* ══ SLIDER DOTS INDICATORS ══ */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: 24,
+            left: "50%",
+            transform: "translateX(-50%)",
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            zIndex: 6,
+          }}
+        >
+          {HERO_SLIDES.map((_, idx) => (
+            <button
+              key={idx}
+              type="button"
+              onClick={() => setCurrentSlide(idx)}
+              aria-label={`الشريحة ${idx + 1}`}
+              style={{
+                width: currentSlide === idx ? 28 : 10,
+                height: 10,
+                borderRadius: 9999,
+                background:
+                  currentSlide === idx ? "#ffffff" : "rgba(255,255,255,0.45)",
+                border: "none",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+              }}
+            />
+          ))}
+        </div>
       </section>
 
       {/* ══ MOBILE BOTTOM SHEET ══ */}
@@ -827,7 +894,7 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
               </button>
             </div>
 
-            {/* Items list - NO KEYBOARD, Scrollbar Hidden, Highlight Selected Option */}
+            {/* Items list */}
             <div
               className="flex-1 overflow-y-auto p-4 space-y-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
               style={{ direction: "rtl", maxHeight: "50vh" }}
