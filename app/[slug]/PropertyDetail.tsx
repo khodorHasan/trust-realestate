@@ -132,7 +132,7 @@ export default function PropertyDetail({
   return (
     <main
       dir="rtl"
-      className="min-h-screen bg-white"
+      className="min-h-screen bg-white max-w-full overflow-x-hidden"
       style={{ fontFamily: "ThmanyahSans, sans-serif" }}
     >
       {/* ── NAVBAR ── */}
@@ -244,7 +244,8 @@ export default function PropertyDetail({
 
       {/* ── MAIN CONTENT ── */}
       <div
-        style={{ maxWidth: 1200, margin: "0 auto", padding: "32px 24px 60px" }}
+        className="w-full mx-auto px-4 sm:px-6 pt-6 pb-[60px]"
+        style={{ maxWidth: 1200 }}
       >
         {/* Badge + Title */}
         <div className="mb-6">
@@ -342,20 +343,19 @@ export default function PropertyDetail({
           style={{ gridTemplateColumns: "1fr 340px", alignItems: "start" }}
         >
           {/* LEFT */}
-          <div>
-            {/* Stats */}
-            <div className="flex justify-between items-center w-full mb-8">
+          <div className="w-full overflow-hidden">
+            {/* Stats (Responsive Grid for Mobile) */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 w-full mb-8">
               {stats.map((stat, i) => (
                 <div
                   key={i}
-                  className="flex flex-col items-center bg-white border border-[#ede9e1] rounded-[14px] px-4 py-2.5 gap-1"
-                  style={{ minWidth: 100 }}
+                  className="flex flex-col items-center justify-center bg-white border border-[#ede9e1] rounded-[14px] px-2 py-2.5 gap-1 text-center w-full"
                 >
                   <span className="text-[#1b5ebe]">{stat.icon}</span>
-                  <span className="text-sm md:text-base font-medium text-[#0e1f1a]">
+                  <span className="text-xs sm:text-sm md:text-base font-medium text-[#0e1f1a]">
                     {stat.label}
                   </span>
-                  <span className="text-xs text-[#9ca3af] font-regular">
+                  <span className="text-[11px] sm:text-xs text-[#9ca3af]">
                     {stat.sub}
                   </span>
                 </div>
@@ -367,7 +367,7 @@ export default function PropertyDetail({
               <h2 className="text-base md:text-lg font-medium text-[#0e1f1a] mb-3 pb-2.5 border-b border-[#ede9e1]">
                 تفاصيل العقار
               </h2>
-              <p className="text-[#5A6561] text-sm md:text-base leading-[1.7]">
+              <p className="text-[#5A6561] text-sm md:text-base leading-[1.7] break-words">
                 {p.description}
               </p>
             </div>
@@ -377,11 +377,11 @@ export default function PropertyDetail({
               <h2 className="text-base md:text-lg font-medium text-[#0e1f1a] mb-3 pb-2.5 border-b border-[#ede9e1]">
                 المميزات
               </h2>
-              <div className="flex flex-wrap gap-2.5">
+              <div className="flex flex-wrap gap-2 sm:gap-2.5">
                 {p.features.map((f, i) => (
                   <span
                     key={i}
-                    className="bg-[#f0f4ff] text-[#1b5ebe] border border-[#dbe4ff] rounded-[20px] px-4 py-1.5 text-xs md:text-sm font-medium"
+                    className="bg-[#f0f4ff] text-[#1b5ebe] border border-[#dbe4ff] rounded-[20px] px-3 sm:px-4 py-1 sm:py-1.5 text-[13px] md:text-sm font-medium"
                   >
                     {f}
                   </span>
@@ -392,7 +392,7 @@ export default function PropertyDetail({
 
           {/* RIGHT: Price card */}
           <div
-            className="bg-white border border-[#ede9e1] rounded-[20px] p-7"
+            className="bg-white border border-[#ede9e1] rounded-[20px] p-5 sm:p-7 w-full"
             style={{ position: "sticky", top: 80 }}
           >
             <div className="mb-5">
@@ -420,7 +420,7 @@ export default function PropertyDetail({
               href={`https://wa.me/96181500175?text=${whatsappMsg}`}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center justify-center gap-1.5 w-full text-white rounded-sm py-2 text-sm font-medium no-underline mb-3"
+              className="flex items-center justify-center gap-1.5 w-full text-white rounded-sm py-2.5 text-sm font-medium no-underline mb-3"
               style={{ background: "#1b5ebe" }}
             >
               <FaWhatsapp size={18} />
@@ -429,7 +429,7 @@ export default function PropertyDetail({
 
             <a
               href="tel:+96181500175"
-              className="flex items-center justify-center gap-1.5 w-full bg-[#f5f5f5] text-[#0e1f1a] rounded-sm py-2 text-sm font-regular no-underline"
+              className="flex items-center justify-center gap-1.5 w-full bg-[#f5f5f5] text-[#0e1f1a] rounded-sm py-2.5 text-sm font-regular no-underline"
             >
               <FiPhone size={16} />
               اتصل بنا
@@ -444,22 +444,22 @@ export default function PropertyDetail({
 
       {/* ── RECOMMENDED PROPERTIES SECTION ── */}
       {recommendedProperties.length > 0 && (
-        <section className="bg-[#]border-t border-[#ede9e1] py-12 px-6">
+        <section className="border-t border-[#ede9e1] py-12 px-4 sm:px-6">
           <div className="max-w-[1200px] mx-auto">
             <div className="flex items-center justify-between mb-8">
               <div>
-                <h2 className="text-lg md:text-xl font-bold text-[#0e1f1a]">
+                <h2 className="text-md md:text-lg font-bold text-[#0e1f1a]">
                   عقارات مقترحة قد تهمك
                 </h2>
-                <p className="text-xs md:text-sm text-[#5A6561] mt-1">
+                <p className="text-[13px] md:text-xs text-[#5A6561]">
                   عروض مشابهة بناءً على نوع العقار والمنطقة
                 </p>
               </div>
               <Link
                 href="/#listings"
-                className="flex items-center gap-1 text-[#1b5ebe] font-medium text-sm no-underline hover:underline"
+                className="flex items-center text-[#1b5ebe] font-medium text-sm no-underline hover:underline"
               >
-                <span>عرض الكل</span>
+                <span> الكل</span>
                 <FiChevronLeft size={16} />
               </Link>
             </div>
