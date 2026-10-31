@@ -16,7 +16,7 @@ const HERO_SLIDES = [
   },
   {
     desktop: "/hero/desktop-hero-banner-2.webp",
-    mobile: "/hero/phone-hero-banner-2.webp", // يمكن تغييرها لصورة الموبايل الخاصة بالبانر الثاني أو استخدام نفس الصورة
+    mobile: "/hero/phone-hero-banner-2.webp",
   },
 ];
 
@@ -65,11 +65,11 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
   // Hero Slider State
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Auto-play interval for Hero Slider
+  // Auto-play interval for Hero Slider (Reduced to 3 seconds for faster transition)
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -155,111 +155,52 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
       {/* ══ HERO SECTION ══ */}
       <section
         id="hero"
-        style={{
-          position: "relative",
-          height: "100vh",
-          minHeight: 600,
-          display: "flex",
-          flexDirection: "column",
-          overflow: "hidden",
-        }}
+        className="relative h-screen min-h-[600px] flex flex-col overflow-hidden"
       >
         {/* ══ HERO SLIDER BACKGROUNDS ══ */}
         {HERO_SLIDES.map((slide, index) => (
           <div
             key={slide.desktop}
-            style={{
-              position: "absolute",
-              inset: 0,
-              opacity: currentSlide === index ? 1 : 0,
-              transition: "opacity 1000ms ease-in-out",
-              zIndex: 0,
-            }}
+            className={`absolute inset-0 transition-opacity duration-500 ease-in-out z-0 ${
+              currentSlide === index ? "opacity-100" : "opacity-0"
+            }`}
           >
             {/* Desktop BG */}
             <div
-              className="hidden md:block"
-              style={{
-                position: "absolute",
-                inset: 0,
-                backgroundImage: `url('${slide.desktop}')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
+              className="hidden md:block absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url('${slide.desktop}')` }}
             />
             {/* Mobile BG */}
             <div
-              className="block md:hidden"
-              style={{
-                position: "absolute",
-                inset: 0,
-                backgroundImage: `url('${slide.mobile}')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
+              className="block md:hidden absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url('${slide.mobile}')` }}
             />
           </div>
         ))}
 
         {/* Overlay */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "rgba(20,35,50,0.32)",
-            zIndex: 1,
-          }}
-        />
+        <div className="absolute inset-0 bg-[#142332]/30 z-[1]" />
 
         {/* ══ NAVBAR ══ */}
-        <nav
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            zIndex: 10,
-            width: "100%",
-          }}
-        >
+        <nav className="absolute top-0 left-0 right-0 z-10 w-full">
           <div className="md:bg-transparent">
-            <div
-              className="bg-white md:bg-transparent"
-              style={{
-                maxWidth: 1280,
-                margin: "0 auto",
-                padding: "0 24px",
-                height: 68,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                direction: "rtl",
-              }}
-            >
+            <div className="bg-white md:bg-transparent max-w-[1280px] mx-auto px-6 h-[68px] flex items-center justify-between [direction:rtl]">
               {/* Logo */}
               <div className="flex flex-col md:flex-row items-center justify-center gap-1">
                 <img
                   src="/trust-logo.svg"
                   alt="Logo"
-                  style={{ width: 72, height: "auto" }}
+                  className="w-[72px] h-auto"
                 />
               </div>
 
               {/* Desktop links */}
-              <div
-                className="hidden md:flex"
-                style={{ gap: 36, alignItems: "center" }}
-              >
+              <div className="hidden md:flex gap-[36px] items-center">
                 {NAV_LINKS.map((item) => (
                   <a
                     key={item.id}
                     href={`#${item.id}`}
-                    style={{
-                      color: "#ebebeb",
-                      fontSize: 17,
-                      fontWeight: 400,
-                      textDecoration: "none",
-                    }}
+                    className="text-[#ebebeb] text-[17px] font-normal no-underline"
                   >
                     {item.label}
                   </a>
@@ -270,20 +211,7 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
               <button
                 type="button"
                 onClick={onPublish}
-                className="hidden md:inline-flex"
-                style={{
-                  background: "#1b5ebe",
-                  color: "#fff",
-                  border: "none",
-                  borderRadius: 20,
-                  padding: "10px 24px",
-                  fontFamily: "ThmanyahSans, sans-serif",
-                  fontWeight: 500,
-                  fontSize: 16,
-                  cursor: "pointer",
-                  whiteSpace: "nowrap",
-                  alignItems: "center",
-                }}
+                className="hidden md:inline-flex bg-[#1b5ebe] text-white border-none rounded-[20px] px-6 py-2.5 font-['ThmanyahSans',sans-serif] font-medium text-base cursor-pointer whitespace-nowrap items-center"
               >
                 نشر إعلان
               </button>
@@ -291,22 +219,9 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
               {/* Mobile hamburger */}
               <button
                 type="button"
-                className="flex md:hidden"
+                className="flex md:hidden bg-[#1b5ebe]/[0.08] border-[1.5px] border-[#1b5ebe]/[0.18] rounded-[10px] w-[42px] h-[42px] cursor-pointer items-center justify-center flex-col gap-[5px] p-0"
                 onClick={() => setMenuOpen((o) => !o)}
                 aria-label="فتح القائمة"
-                style={{
-                  background: "rgba(27,94,190,0.08)",
-                  border: "1.5px solid rgba(27,94,190,0.18)",
-                  borderRadius: 10,
-                  width: 42,
-                  height: 42,
-                  cursor: "pointer",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexDirection: "column",
-                  gap: 5,
-                  padding: 0,
-                }}
               >
                 {menuOpen ? (
                   <FiX size={20} color="#1b5ebe" strokeWidth={2.2} />
@@ -318,52 +233,23 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
 
             {/* Mobile dropdown menu */}
             {menuOpen && (
-              <div
-                className="md:hidden"
-                style={{
-                  background: "rgba(255,255,255,0.97)",
-                  backdropFilter: "blur(20px)",
-                  WebkitBackdropFilter: "blur(20px)",
-                  borderTop: "1px solid rgba(27,94,190,0.08)",
-                  boxShadow: "0 12px 40px rgba(0,0,0,0.13)",
-                  borderRadius: "0 0 24px 24px",
-                  padding: "8px 16px 20px",
-                  direction: "rtl",
-                }}
-              >
+              <div className="md:hidden bg-white/95 backdrop-blur-[20px] border-t border-[#1b5ebe]/[0.08] shadow-[0_12px_40px_rgba(0,0,0,0.13)] rounded-b-[24px] px-4 pt-2 pb-5 [direction:rtl]">
                 {NAV_LINKS.map((item, i) => (
                   <a
                     key={item.id}
                     href={`#${item.id}`}
                     onClick={() => setMenuOpen(false)}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      width: "100%",
-                      padding: "13px 12px",
-                      fontSize: 15,
-                      fontWeight: 500,
-                      color: "#1a2a24",
-                      textDecoration: "none",
-                      borderBottom:
-                        i < NAV_LINKS.length - 1
-                          ? "1px solid rgba(0,0,0,0.05)"
-                          : "none",
-                      borderRadius: 12,
-                      transition: "background 0.15s",
-                    }}
+                    className={`flex items-center w-full py-[13px] px-3 text-[15px] font-medium text-[#1a2a24] no-underline rounded-xl transition-colors ${
+                      i < NAV_LINKS.length - 1
+                        ? "border-b border-black/5"
+                        : "border-none"
+                    }`}
                   >
                     {item.label}
                   </a>
                 ))}
 
-                <div
-                  style={{
-                    height: 1,
-                    background: "rgba(0,0,0,0.07)",
-                    margin: "10px 0 14px",
-                  }}
-                />
+                <div className="h-[1px] bg-black/5 my-[10px] mb-[14px]" />
 
                 <button
                   type="button"
@@ -371,20 +257,7 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
                     onPublish();
                     setMenuOpen(false);
                   }}
-                  style={{
-                    display: "block",
-                    width: "100%",
-                    background: "#1b5ebe",
-                    color: "#fff",
-                    border: "none",
-                    borderRadius: 20,
-                    padding: "13px 24px",
-                    fontFamily: "ThmanyahSans, sans-serif",
-                    fontWeight: 600,
-                    fontSize: 16,
-                    cursor: "pointer",
-                    textAlign: "center",
-                  }}
+                  className="block w-full bg-[#1b5ebe] text-white border-none rounded-[20px] py-[13px] px-6 font-['ThmanyahSans',sans-serif] font-semibold text-base cursor-pointer text-center"
                 >
                   نشر إعلان
                 </button>
@@ -394,82 +267,31 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
         </nav>
 
         {/* ══ HERO BODY ══ */}
-        <div
-          style={{
-            flex: 1,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            position: "relative",
-            zIndex: 5,
-            padding: "0 24px",
-            direction: "rtl",
-            marginTop: 8,
-          }}
-          className="md:mt-4"
-        >
-          <div style={{ width: "100%", maxWidth: 860, textAlign: "center" }}>
-            <h1
-              style={{
-                color: "#fff",
-                fontSize: "clamp(2.2rem, 5vw, 4rem)",
-                fontWeight: 900,
-                lineHeight: 1.3,
-                marginBottom: 20,
-              }}
-            >
+        <div className="flex-1 flex items-center justify-center relative z-[5] px-6 [direction:rtl] mt-2 md:mt-4">
+          <div className="w-full max-w-[860px] text-center">
+            <h1 className="text-white text-[clamp(2.2rem,5vw,4rem)] font-black leading-[1.3] mb-5">
               نساعدك تشتري، تبيع،
               <br />
               تؤجر، وتدير عقارك
             </h1>
-            <p
-              style={{
-                color: "rgba(255,255,255,0.75)",
-                fontSize: 17,
-                lineHeight: 1.75,
-                maxWidth: 560,
-                margin: "0 auto 40px",
-              }}
-            >
+            <p className="text-white/75 text-[17px] leading-[1.75] max-w-[560px] mx-auto mb-[40px]">
               حلول عقارية متكاملة وخيارات متنوعة تناسب احتياجك وتساعدك على اتخاذ
               القرار المناسب.
             </p>
 
             {/* Tabs */}
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: 16,
-              }}
-            >
-              <div
-                style={{
-                  display: "inline-flex",
-                  background: "rgba(255,255,255,0.15)",
-                  borderRadius: 50,
-                  padding: 4,
-                  backdropFilter: "blur(8px)",
-                  border: "1px solid rgba(255,255,255,0.2)",
-                }}
-              >
+            <div className="flex justify-center mb-4">
+              <div className="inline-flex bg-white/15 rounded-full p-1 backdrop-blur-md border border-white/20">
                 {(["إيجار", "بيع"] as const).map((t) => (
                   <button
                     type="button"
                     key={t}
                     onClick={() => setTab(t)}
-                    style={{
-                      padding: "10px 40px",
-                      borderRadius: 50,
-                      border: "none",
-                      cursor: "pointer",
-                      fontFamily: "ThmanyahSans, sans-serif",
-                      fontWeight: 600,
-                      fontSize: 15,
-                      transition: "all 0.2s",
-                      background: tab === t ? "#fff" : "transparent",
-                      color: tab === t ? "#0e1f1a" : "rgba(255,255,255,0.85)",
-                    }}
+                    className={`px-[40px] py-[10px] rounded-full border-none cursor-pointer font-['ThmanyahSans',sans-serif] font-semibold text-[15px] transition-all duration-200 ${
+                      tab === t
+                        ? "bg-white text-[#0e1f1a]"
+                        : "bg-transparent text-white/85"
+                    }`}
                   >
                     {t}
                   </button>
@@ -478,59 +300,17 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
             </div>
 
             {/* ── DESKTOP SEARCH BAR ── */}
-            <div
-              dir="rtl"
-              className="hidden md:flex"
-              style={{
-                alignItems: "center",
-                justifyContent: "space-between",
-                background: "#fff",
-                borderRadius: 9999,
-                padding: "10px 12px",
-                boxShadow: "0 20px 60px rgba(0,0,0,0.25)",
-                maxWidth: "100%",
-                border: "1px solid rgba(0,0,0,0.06)",
-              }}
-            >
+            <div className="hidden md:flex items-center justify-between bg-white rounded-full p-[10px_12px] shadow-[0_20px_60px_rgba(0,0,0,0.25)] max-w-full border border-black/[0.06] [direction:rtl]">
               {/* City */}
-              <div
-                style={{
-                  flex: 1,
-                  padding: "6px 24px",
-                  display: "flex",
-                  flexDirection: "column",
-                  textAlign: "right",
-                  position: "relative",
-                }}
-              >
-                <span
-                  style={{ fontSize: 13, color: "#6b7280", marginBottom: 2 }}
-                >
+              <div className="flex-1 px-6 py-[6px] flex flex-col text-right relative">
+                <span className="text-[13px] text-gray-500 mb-[2px]">
                   المدينة
                 </span>
-                <div
-                  style={{
-                    position: "relative",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
+                <div className="relative flex items-center">
                   <select
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
-                    style={{
-                      width: "100%",
-                      background: "transparent",
-                      fontWeight: 700,
-                      color: "#111827",
-                      fontSize: 17,
-                      outline: "none",
-                      cursor: "pointer",
-                      appearance: "none",
-                      paddingLeft: 24,
-                      border: "none",
-                      fontFamily: "ThmanyahSans, sans-serif",
-                    }}
+                    className="w-full bg-transparent font-bold text-gray-900 text-[17px] outline-none cursor-pointer appearance-none pl-6 border-none font-['ThmanyahSans',sans-serif]"
                   >
                     <option value="">اختر المدينة</option>
                     {CITIES.filter((c) => c !== "الكل").map((c) => (
@@ -541,64 +321,23 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
                   </select>
                   <FiChevronDown
                     size={18}
-                    color="#9ca3af"
-                    style={{
-                      position: "absolute",
-                      left: 0,
-                      pointerEvents: "none",
-                    }}
+                    className="text-gray-400 absolute left-0 pointer-events-none"
                   />
                 </div>
               </div>
 
-              <div
-                style={{
-                  width: 1,
-                  height: 40,
-                  background: "#e5e7eb",
-                  flexShrink: 0,
-                }}
-              />
+              <div className="w-[1px] h-[40px] bg-gray-200 shrink-0" />
 
               {/* Property Type */}
-              <div
-                style={{
-                  flex: 1,
-                  padding: "6px 24px",
-                  display: "flex",
-                  flexDirection: "column",
-                  textAlign: "right",
-                  position: "relative",
-                }}
-              >
-                <span
-                  style={{ fontSize: 13, color: "#6b7280", marginBottom: 2 }}
-                >
+              <div className="flex-1 px-6 py-[6px] flex flex-col text-right relative">
+                <span className="text-[13px] text-gray-500 mb-[2px]">
                   نوع العقار
                 </span>
-                <div
-                  style={{
-                    position: "relative",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
+                <div className="relative flex items-center">
                   <select
                     value={type}
                     onChange={(e) => setType(e.target.value)}
-                    style={{
-                      width: "100%",
-                      background: "transparent",
-                      fontWeight: 700,
-                      color: "#111827",
-                      fontSize: 17,
-                      outline: "none",
-                      cursor: "pointer",
-                      appearance: "none",
-                      paddingLeft: 24,
-                      border: "none",
-                      fontFamily: "ThmanyahSans, sans-serif",
-                    }}
+                    className="w-full bg-transparent font-bold text-gray-900 text-[17px] outline-none cursor-pointer appearance-none pl-6 border-none font-['ThmanyahSans',sans-serif]"
                   >
                     <option value="">جميع الأنواع</option>
                     {PROP_TYPES.filter((p) => p !== "الكل").map((p) => (
@@ -609,64 +348,23 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
                   </select>
                   <FiChevronDown
                     size={18}
-                    color="#9ca3af"
-                    style={{
-                      position: "absolute",
-                      left: 0,
-                      pointerEvents: "none",
-                    }}
+                    className="text-gray-400 absolute left-0 pointer-events-none"
                   />
                 </div>
               </div>
 
-              <div
-                style={{
-                  width: 1,
-                  height: 40,
-                  background: "#e5e7eb",
-                  flexShrink: 0,
-                }}
-              />
+              <div className="w-[1px] h-[40px] bg-gray-200 shrink-0" />
 
               {/* Price */}
-              <div
-                style={{
-                  flex: 1,
-                  padding: "6px 24px",
-                  display: "flex",
-                  flexDirection: "column",
-                  textAlign: "right",
-                  position: "relative",
-                }}
-              >
-                <span
-                  style={{ fontSize: 13, color: "#6b7280", marginBottom: 2 }}
-                >
+              <div className="flex-1 px-6 py-[6px] flex flex-col text-right relative">
+                <span className="text-[13px] text-gray-500 mb-[2px]">
                   السعر
                 </span>
-                <div
-                  style={{
-                    position: "relative",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
+                <div className="relative flex items-center">
                   <select
                     value={price}
                     onChange={(e) => setPrice(e.target.value)}
-                    style={{
-                      width: "100%",
-                      background: "transparent",
-                      fontWeight: 700,
-                      color: "#111827",
-                      fontSize: 17,
-                      outline: "none",
-                      cursor: "pointer",
-                      appearance: "none",
-                      paddingLeft: 24,
-                      border: "none",
-                      fontFamily: "ThmanyahSans, sans-serif",
-                    }}
+                    className="w-full bg-transparent font-bold text-gray-900 text-[17px] outline-none cursor-pointer appearance-none pl-6 border-none font-['ThmanyahSans',sans-serif]"
                   >
                     <option value="">بلا تحديد</option>
                     {PRICES.filter((p) => p.value !== "").map((p) => (
@@ -677,12 +375,7 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
                   </select>
                   <FiChevronDown
                     size={18}
-                    color="#9ca3af"
-                    style={{
-                      position: "absolute",
-                      left: 0,
-                      pointerEvents: "none",
-                    }}
+                    className="text-gray-400 absolute left-0 pointer-events-none"
                   />
                 </div>
               </div>
@@ -691,23 +384,7 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
               <button
                 type="button"
                 onClick={handleDesktopSearch}
-                style={{
-                  background: "#1b5ebe",
-                  color: "#fff",
-                  border: "none",
-                  borderRadius: 9999,
-                  padding: "14px 36px",
-                  fontFamily: "ThmanyahSans, sans-serif",
-                  fontWeight: 700,
-                  fontSize: 17,
-                  cursor: "pointer",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 8,
-                  flexShrink: 0,
-                  marginRight: 4,
-                  boxShadow: "0 4px 16px rgba(27,94,190,0.35)",
-                }}
+                className="bg-[#1b5ebe] text-white border-none rounded-full px-[36px] py-[14px] font-['ThmanyahSans',sans-serif] font-bold text-[17px] cursor-pointer flex items-center gap-2 shrink-0 mr-1 shadow-[0_4px_16px_rgba(27,94,190,0.35)]"
               >
                 <FiSearch size={18} strokeWidth={2.5} />
                 <span>بحث</span>
@@ -719,51 +396,17 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
               <button
                 type="button"
                 onClick={openSheet}
-                dir="rtl"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 12,
-                  background: "#fff",
-                  borderRadius: 9999,
-                  padding: "10px 14px",
-                  width: "100%",
-                  maxWidth: 360,
-                  boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
-                  border: "none",
-                  cursor: "pointer",
-                }}
+                className="flex items-center gap-[12px] bg-white rounded-full p-[10px_14px] w-full max-w-[360px] shadow-[0_8px_32px_rgba(0,0,0,0.18)] border-none cursor-pointer [direction:rtl]"
               >
-                <span
-                  style={{
-                    flexShrink: 0,
-                    width: 36,
-                    height: 36,
-                    borderRadius: "50%",
-                    background: "#1b5ebe",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginLeft: "auto",
-                  }}
-                >
+                <span className="shrink-0 w-9 h-9 rounded-full bg-[#1b5ebe] flex items-center justify-center ml-auto">
                   <FiSearch size={15} color="#fff" strokeWidth={2.5} />
                 </span>
                 <span
-                  style={{
-                    flex: 1,
-                    textAlign: "right",
-                    fontSize: 14,
-                    color:
-                      mobileCity || mobileType || mobilePrice
-                        ? "#111827"
-                        : "#9ca3af",
-                    fontWeight:
-                      mobileCity || mobileType || mobilePrice ? 600 : 400,
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                    whiteSpace: "nowrap",
-                  }}
+                  className={`flex-1 text-right text-sm overflow-hidden text-ellipsis whitespace-nowrap ${
+                    mobileCity || mobileType || mobilePrice
+                      ? "text-gray-900 font-semibold"
+                      : "text-gray-400 font-normal"
+                  }`}
                 >
                   {pillLabel()}
                 </span>
@@ -773,34 +416,18 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
         </div>
 
         {/* ══ SLIDER DOTS INDICATORS ══ */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: 24,
-            left: "50%",
-            transform: "translateX(-50%)",
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-            zIndex: 6,
-          }}
-        >
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 z-[6]">
           {HERO_SLIDES.map((_, idx) => (
             <button
               key={idx}
               type="button"
               onClick={() => setCurrentSlide(idx)}
               aria-label={`الشريحة ${idx + 1}`}
-              style={{
-                width: currentSlide === idx ? 28 : 10,
-                height: 10,
-                borderRadius: 9999,
-                background:
-                  currentSlide === idx ? "#ffffff" : "rgba(255,255,255,0.45)",
-                border: "none",
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-              }}
+              className={`h-[10px] rounded-full border-none cursor-pointer transition-all duration-300 ease-in-out ${
+                currentSlide === idx
+                  ? "w-[28px] bg-white"
+                  : "w-[10px] bg-white/45"
+              }`}
             />
           ))}
         </div>
@@ -810,50 +437,20 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
       {step && (
         <>
           <div
-            className="fixed inset-0 md:hidden"
-            style={{ background: "rgba(0,0,0,0.4)", zIndex: 190 }}
+            className="fixed inset-0 md:hidden bg-black/40 z-[190]"
             onClick={closeSheet}
           />
           <div
-            className="fixed bottom-0 left-0 right-0 md:hidden bg-white"
-            style={{
-              borderRadius: "24px 24px 0 0",
-              maxHeight: "80vh",
-              display: "flex",
-              flexDirection: "column",
-              zIndex: 200,
-            }}
+            className="fixed bottom-0 left-0 right-0 md:hidden bg-white rounded-t-[24px] max-h-[80vh] flex flex-col z-[200]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Handle Bar */}
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                padding: "12px 0 4px",
-              }}
-            >
-              <div
-                style={{
-                  width: 40,
-                  height: 4,
-                  borderRadius: 9999,
-                  background: "#e5e7eb",
-                }}
-              />
+            <div className="flex justify-center pt-3 pb-1">
+              <div className="w-[40px] h-[4px] rounded-full bg-gray-200" />
             </div>
 
             {/* Header */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                padding: "8px 20px 12px",
-                direction: "rtl",
-                borderBottom: "1px solid #f3f4f6",
-              }}
-            >
+            <div className="flex items-center justify-between px-5 pt-2 pb-3 [direction:rtl] border-b border-gray-100">
               <div className="flex items-center gap-2">
                 {step > 1 && (
                   <button
@@ -861,44 +458,26 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
                     onClick={() =>
                       setStep((prev) => (prev ? prev - 1 : 1) as Step)
                     }
-                    style={{
-                      background: "none",
-                      border: "none",
-                      cursor: "pointer",
-                      padding: 4,
-                    }}
+                    className="bg-transparent border-none cursor-pointer p-1"
                   >
-                    <FiChevronRight size={22} color="#374151" />
+                    <FiChevronRight size={22} className="text-gray-700" />
                   </button>
                 )}
-                <p style={{ fontSize: 16, fontWeight: 700, color: "#0e1f1a" }}>
+                <p className="text-base font-bold text-[#0e1f1a]">
                   {sheetTitle()}
                 </p>
               </div>
               <button
                 type="button"
                 onClick={closeSheet}
-                style={{
-                  background: "#f3f4f6",
-                  border: "none",
-                  borderRadius: "50%",
-                  width: 32,
-                  height: 32,
-                  cursor: "pointer",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
+                className="bg-gray-100 border-none rounded-full w-8 h-8 cursor-pointer flex items-center justify-center"
               >
-                <FiX size={16} color="#6b7280" />
+                <FiX size={16} className="text-gray-500" />
               </button>
             </div>
 
             {/* Items list */}
-            <div
-              className="flex-1 overflow-y-auto p-4 space-y-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-              style={{ direction: "rtl", maxHeight: "50vh" }}
-            >
+            <div className="flex-1 overflow-y-auto p-4 space-y-2 max-h-[50vh] [direction:rtl] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
               {/* STEP 1: City */}
               {step === 1 &&
                 CITIES.map((item) => {
@@ -909,23 +488,11 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
                       key={item}
                       type="button"
                       onClick={() => pickCity(item)}
-                      style={{
-                        display: "block",
-                        width: "100%",
-                        textAlign: "right",
-                        padding: "14px 16px",
-                        fontSize: 15,
-                        borderRadius: 12,
-                        cursor: "pointer",
-                        fontFamily: "ThmanyahSans, sans-serif",
-                        transition: "all 0.15s ease",
-                        background: isSelected ? "#1b5ebe" : "#f9fafb",
-                        color: isSelected ? "#ffffff" : "#1f2937",
-                        fontWeight: isSelected ? 700 : 500,
-                        border: isSelected
-                          ? "1px solid #1b5ebe"
-                          : "1px solid #e5e7eb",
-                      }}
+                      className={`block w-full text-right px-4 py-[14px] text-[15px] rounded-[12px] cursor-pointer font-['ThmanyahSans',sans-serif] transition-all duration-150 ease-in-out ${
+                        isSelected
+                          ? "bg-[#1b5ebe] text-white font-bold border border-[#1b5ebe]"
+                          : "bg-gray-50 text-gray-800 font-medium border border-gray-200"
+                      }`}
                     >
                       {item}
                     </button>
@@ -942,23 +509,11 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
                       key={item}
                       type="button"
                       onClick={() => pickType(item)}
-                      style={{
-                        display: "block",
-                        width: "100%",
-                        textAlign: "right",
-                        padding: "14px 16px",
-                        fontSize: 15,
-                        borderRadius: 12,
-                        cursor: "pointer",
-                        fontFamily: "ThmanyahSans, sans-serif",
-                        transition: "all 0.15s ease",
-                        background: isSelected ? "#1b5ebe" : "#f9fafb",
-                        color: isSelected ? "#ffffff" : "#1f2937",
-                        fontWeight: isSelected ? 700 : 500,
-                        border: isSelected
-                          ? "1px solid #1b5ebe"
-                          : "1px solid #e5e7eb",
-                      }}
+                      className={`block w-full text-right px-4 py-[14px] text-[15px] rounded-[12px] cursor-pointer font-['ThmanyahSans',sans-serif] transition-all duration-150 ease-in-out ${
+                        isSelected
+                          ? "bg-[#1b5ebe] text-white font-bold border border-[#1b5ebe]"
+                          : "bg-gray-50 text-gray-800 font-medium border border-gray-200"
+                      }`}
                     >
                       {item}
                     </button>
@@ -974,23 +529,11 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
                       key={item.label}
                       type="button"
                       onClick={() => pickPrice(item.value)}
-                      style={{
-                        display: "block",
-                        width: "100%",
-                        textAlign: "right",
-                        padding: "14px 16px",
-                        fontSize: 15,
-                        borderRadius: 12,
-                        cursor: "pointer",
-                        fontFamily: "ThmanyahSans, sans-serif",
-                        transition: "all 0.15s ease",
-                        background: isSelected ? "#1b5ebe" : "#f9fafb",
-                        color: isSelected ? "#ffffff" : "#1f2937",
-                        fontWeight: isSelected ? 700 : 500,
-                        border: isSelected
-                          ? "1px solid #1b5ebe"
-                          : "1px solid #e5e7eb",
-                      }}
+                      className={`block w-full text-right px-4 py-[14px] text-[15px] rounded-[12px] cursor-pointer font-['ThmanyahSans',sans-serif] transition-all duration-150 ease-in-out ${
+                        isSelected
+                          ? "bg-[#1b5ebe] text-white font-bold border border-[#1b5ebe]"
+                          : "bg-gray-50 text-gray-800 font-medium border border-gray-200"
+                      }`}
                     >
                       {item.label}
                     </button>
@@ -1000,32 +543,11 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
 
             {/* Bottom Search Button - Show ONLY in Step 3 */}
             {step === 3 && (
-              <div
-                style={{
-                  padding: "12px 16px 28px",
-                  borderTop: "1px solid #f3f4f6",
-                }}
-              >
+              <div className="px-4 pt-3 pb-[28px] border-t border-gray-100">
                 <button
                   type="button"
                   onClick={handleMobileSearch}
-                  style={{
-                    width: "100%",
-                    background: "#1b5ebe",
-                    color: "#fff",
-                    border: "none",
-                    borderRadius: 14,
-                    padding: "14px 24px",
-                    fontFamily: "ThmanyahSans, sans-serif",
-                    fontWeight: 700,
-                    fontSize: 16,
-                    cursor: "pointer",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: 8,
-                    boxShadow: "0 4px 14px rgba(27,94,190,0.3)",
-                  }}
+                  className="w-full bg-[#1b5ebe] text-white border-none rounded-[14px] px-6 py-[14px] font-['ThmanyahSans',sans-serif] font-bold text-base cursor-pointer flex items-center justify-center gap-2 shadow-[0_4px_14px_rgba(27,94,190,0.3)]"
                 >
                   <FiSearch size={18} strokeWidth={2.5} />
                   عرض نتائج البحث

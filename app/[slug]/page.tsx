@@ -7,12 +7,10 @@ export default async function PropertyPage({
 }: {
   params: Promise<{ slug: string }> | { slug: string };
 }) {
-  // Resolves params for Next.js 15+ while remaining backwards compatible with Next.js 14
   const resolvedParams = await params;
   const rawSlug = resolvedParams.slug;
   const decodedSlug = decodeURIComponent(rawSlug);
 
-  // Match against either decoded or raw slug in properties.json
   const property = properties.find(
     (p) => p.slug === decodedSlug || p.slug === rawSlug,
   );
@@ -23,7 +21,6 @@ export default async function PropertyPage({
 }
 
 export function generateStaticParams() {
-  // Return the raw slug string; Next.js handles route encoding automatically
   return properties.map((p) => ({
     slug: p.slug,
   }));
