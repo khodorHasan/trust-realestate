@@ -1,5 +1,6 @@
 {
+  "/search/page": "app/search/page.js",
   "/page": "app/page.js",
-  "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
-  "/[slug]/page": "app/[slug]/page.js"
+  "/[slug]/page": "app/[slug]/page.js",
+  "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js"
 }

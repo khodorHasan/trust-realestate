@@ -6,7 +6,6 @@ import ActionCards from "../components/ActionCards";
 import About from "../components/About";
 import Services from "../components/Services";
 import Contact from "../components/Contact";
-import Footer from "../components/Footer";
 import Modal from "../components/Modals";
 import WhatsAppFloat from "../components/WhatsAppFloat";
 export default function Home() {
@@ -22,7 +21,6 @@ export default function Home() {
       />
       <About />
       <Services />
-      <Footer />
 
       <WhatsAppFloat />
 

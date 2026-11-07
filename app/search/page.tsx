@@ -7,6 +7,7 @@ import {
 } from "react-icons/io5";
 import { BiBath, BiArea } from "react-icons/bi";
 import properties from "../data/properties.json"; // قم بتعديل المسار حسب المجلد لديك
+import Navbar from "../../components/Navbar";
 
 // دالة مساعدة لاستخراج الأرقام فقط من نصوص الأسعار
 function parseNumericPrice(priceStr: string): number {
@@ -85,18 +86,11 @@ async function SearchResultsList({ searchParams }: SearchParamsProps) {
   });
 
   return (
-    <div dir="rtl" className="min-h-screen bg-gray-50 py-12 px-6 md:px-20">
-      <div className="max-w-7xl mx-auto">
+    <div dir="rtl" className="min-h-screen bg-white py-6 px-6 md:px-20">
+      <Navbar />
+      <div className="max-w-7xl mx-auto bg-white mt-12">
         {/* Navigation & Header */}
         <div className="mb-8">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm font-bold text-[var(--blue,#1b5ebe)] hover:underline mb-4"
-          >
-            <IoArrowForward className="w-4 h-4" />
-            <span>العودة للصفحة الرئيسية</span>
-          </Link>
-
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
             نتائج البحث عن العقارات
           </h1>
@@ -137,7 +131,7 @@ async function SearchResultsList({ searchParams }: SearchParamsProps) {
 
         {/* Properties Grid or Empty State */}
         {filteredProperties.length === 0 ? (
-          <div className="text-center py-20 bg-white rounded-3xl border border-gray-100 shadow-sm">
+          <div className="text-center py-20">
             <div className="w-16 h-16 bg-blue-50 text-[var(--blue,#1b5ebe)] rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
               !
             </div>

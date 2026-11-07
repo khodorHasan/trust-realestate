@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import PropertyDetail from "./PropertyDetail";
 import properties from "../data/properties.json";
-
+import Navbar from "../../components/Navbar";
 export default async function PropertyPage({
   params,
 }: {
@@ -17,7 +17,12 @@ export default async function PropertyPage({
 
   if (!property) notFound();
 
-  return <PropertyDetail property={property} />;
+  return (
+    <>
+      <Navbar />
+      <PropertyDetail property={property} />
+    </>
+  );
 }
 
 export function generateStaticParams() {

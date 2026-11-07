@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import PwaRegister from "../components/PwaRegister";
+import Footer from "../components/Footer";
 
 export const viewport: Viewport = {
   themeColor: "#0E1F1A",
@@ -94,6 +95,7 @@ export default function RootLayout({
       <body>
         <PwaRegister />
         {children}
+        <Footer />
       </body>
     </html>
   );
