@@ -4,9 +4,7 @@ import Link from "next/link";
 import { IoLocationOutline, IoBedOutline, IoArrowBack } from "react-icons/io5";
 import { BiBath, BiArea } from "react-icons/bi";
 import {
-  FiShare2,
   FiPhone,
-  FiMenu,
   FiX,
   FiChevronLeft,
   FiChevronRight,
@@ -14,7 +12,6 @@ import {
 import { FaWhatsapp } from "react-icons/fa6";
 import { MdOutlineStairs } from "react-icons/md";
 import properties from "../data/properties.json";
-import Footer from "../../components/Footer";
 
 type Property = (typeof properties)[0];
 
@@ -436,8 +433,6 @@ export default function PropertyDetail({
           </div>
         </section>
       )}
-
-      <Footer />
 
       {/* ── LIGHTBOX ── */}
       {lightboxOpen && (

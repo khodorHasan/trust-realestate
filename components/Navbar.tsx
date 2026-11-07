@@ -32,7 +32,6 @@ export default function Navbar({ logoSrc = "/trust-logo.svg" }: NavbarProps) {
     <>
       <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
         <nav className="max-w-[1280px] mx-auto px-4 sm:px-6 md:h-[68px] flex items-center justify-between [direction:rtl]">
-          {/* Logo */}
           <a href="/" className="flex items-center gap-2 no-underline shrink-0">
             <img
               src={logoSrc}
@@ -41,7 +40,6 @@ export default function Navbar({ logoSrc = "/trust-logo.svg" }: NavbarProps) {
             />
           </a>
 
-          {/* Desktop Navigation Links */}
           <div className="hidden md:flex gap-8 items-center">
             {NAV_LINKS.map((item) => (
               <a
@@ -54,7 +52,6 @@ export default function Navbar({ logoSrc = "/trust-logo.svg" }: NavbarProps) {
             ))}
           </div>
 
-          {/* Desktop CTA Button */}
           <button
             type="button"
             onClick={openPublishModal}
@@ -63,7 +60,6 @@ export default function Navbar({ logoSrc = "/trust-logo.svg" }: NavbarProps) {
             نشر إعلان
           </button>
 
-          {/* Mobile Hamburger Button */}
           <button
             type="button"
             className="flex md:hidden bg-[#1b5ebe]/[0.08] hover:bg-[#1b5ebe]/[0.15] border border-[#1b5ebe]/[0.18] rounded-[10px] w-[42px] h-[42px] cursor-pointer items-center justify-center transition-colors"
