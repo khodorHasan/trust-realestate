@@ -118,15 +118,6 @@ export default function PropertyDetail({
           },
         ]
       : []),
-    ...(p.floor !== undefined && p.floor > 0
-      ? [
-          {
-            icon: <MdOutlineStairs size={18} />,
-            label: `طابق ${p.floor}`,
-            sub: "الطابق",
-          },
-        ]
-      : []),
   ];
 
   return (
@@ -261,12 +252,12 @@ export default function PropertyDetail({
                 تفاصيل العقار
               </h2>
               <p className="text-[#5A6561] text-sm md:text-base leading-[1.7] break-words">
-                {p.desc || p.description}
+                {p.desc}
               </p>
             </div>
 
             {/* Features */}
-            {p.features && p.features.length > 0 && (
+            {/* {p.features && p.features.length > 0 && (
               <div>
                 <h2 className="text-base md:text-lg font-medium text-[#0e1f1a] mb-3 pb-2.5 border-b border-[#ede9e1]">
                   المميزات
@@ -282,7 +273,7 @@ export default function PropertyDetail({
                   ))}
                 </div>
               </div>
-            )}
+            )} */}
           </div>
 
           {/* RIGHT: Price card */}
