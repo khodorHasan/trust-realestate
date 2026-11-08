@@ -1,165 +1,182 @@
 [
   {
-    "id": 4,
-    "slug": "شقة-حديثة-للإيجار-أبي-سمراء",
-    "title": "شقة مودرن للإيجار - بناء حديث",
-    "location": "طرابلس، أبي سمراء",
-    "price": "400/شهر",
-    "type": "للإيجار",
-    "area": 150,
-    "rooms": 3,
-    "baths": 2,
-    "floor": 4,
-    "description": "شقة غير مفروشة جديدة كلياً في مشروع سكني حديث بمنطقة أبي سمراء، تتميز بديكورات حديثة، مطبخ خشبي مجهز، وإطلالة بانورامية رائعة من البلكونة على الطبيعة وتلال طرابلس.",
-    "features": [
-      "بناء حديث",
-      "تشطيبات سوبر لوكس",
-      "إطلالة بانورامية",
-      "مطبخ مودرن",
-      "مصعد وموقف سيارة"
-    ],
-    "mainImg": "/listings/image-4/image-4.1.jpg",
-    "images": [
-      "/listings/image-4/image-4.1.jpg",
-      "/listings/image-4/image-4.2.jpg",
-      "/listings/image-4/image-4.3.jpg",
-      "/listings/image-4/image-4.4.jpg"
-    ]
-  },
-  {
-    "id": 5,
-    "slug": "أرض-استثمارية-للبيع-جبل-تربل",
-    "title": "أرض للبيع - إطلالة بحرية",
-    "location": "شمال لبنان، جبل تربل",
-    "price": "120,000",
-    "type": "للبيع",
-    "area": 1200,
-    "rooms": 0,
-    "baths": 0,
-    "floor": 0,
-    "description": "أرض استثمارية ممتازة تقع على سفح جبل تربل وتتمتع بإطلالة مفتوحة على شاطئ طرابلس والبحر المتوسط. تحتوي على أشجار زيتون ومحذية لطريق زفت مع توفر شبكة الكهرباء.",
-    "features": [
-      "إطلالة بحرية كاشفة",
-      "محذية لطريق عام",
-      "توفر الكهرباء",
-      "أشجار زيتون",
-      "مناسبة للبناء أو الاستثمار"
-    ],
-    "mainImg": "/listings/image-5/image-5.1.jpg",
-    "images": [
-      "/listings/image-5/image-5.1.jpg",
-      "/listings/image-5/image-5.2.jpg",
-      "/listings/image-5/image-5.3.jpg",
-      "/listings/image-5/image-5.4.jpg"
-    ]
-  },
-  {
-    "id": 6,
-    "slug": "شقة-فاخرة-للبيع-أبي-سمراء",
-    "title": "شقة فاخرة في مبنى حديث",
-    "location": "طرابلس، أبي سمراء",
-    "price": "110,000",
-    "type": "للبيع",
-    "area": 180,
-    "rooms": 3,
-    "baths": 3,
-    "floor": 3,
-    "description": "شقة سوبر لوكس فاخرة في بناية حديثة ملبسة بالحجر على شارع واسع بمنطقة أبي سمراء. تتميز بأرضيات رخام، مطبخ مودرن جديد، وبلكونة زجاجية مطلة على مناظر الطبيعة والوادي.",
-    "features": [
-      "أرضيات رخام فاخرة",
-      "بناء حديث حجر طبيعي",
-      "إطلالة جبلية مفتوحة",
-      "منطقة راقية وهادئة",
-      "سند ملكية جاهز"
-    ],
-    "mainImg": "/listings/image-6/image-6.1.jpg",
-    "images": [
-      "/listings/image-6/image-6.1.jpg",
-      "/listings/image-6/image-6.2.jpg",
-      "/listings/image-6/image-6.3.jpg",
-      "/listings/image-6/image-6.4.jpg"
-    ]
-  },
-  {
     "id": 1,
-    "slug": "شقة-عائلية-للبيع-أبي-سمراء",
-    "title": "شقة عائلية للبيع",
-    "location": "طرابلس، أبي سمراء",
-    "price": "85,000",
-    "type": "للبيع",
-    "area": 160,
+    "slug": "apartment-muscat-1",
+    "title": "شقة مفروشة مكونة من 3 غرف نوم للإيجار في الموج، مسقط",
+    "location": "الموج، مسقط",
+    "type": "للإيجار",
+    "propType": "شقة",
+    "price": "2,500",
     "rooms": 3,
-    "baths": 2,
-    "floor": 3,
-    "description": "شقة عائلية دافئة في منطقة أبي سمراء المرتفعة، تقع في بناية حجرية تقليدية متينة بشرفات واسعة، مع إطلالة خلابة على تلال الزيتون ومحيط هادئ قريب من المدارس والخدمات.",
-    "features": [
-      "إطلالة بانورامية",
-      "شرفات واسعة",
-      "قريبة من الخدمات",
-      "موقف سيارة",
-      "خزان مياه خاص"
-    ],
-    "mainImg": "/listings/image-1/image-1.1.jpg",
+    "baths": 5,
+    "area": "275 متر مربع",
+    "mainImg": "https://images.bayut.om/thumbnails/10415535-400x300.jpeg",
+    "desc": "شقة مميزة للإيجار في مسقط بموقع استراتيجي قريب من كافة الخدمات.",
     "images": [
-      "/listings/image-1/image-1.1.jpg",
-      "/listings/image-1/image-1.2.jpg",
-      "/listings/image-1/image-1.3.jpg",
-      "/listings/image-1/image-1.4.jpg",
-      "/listings/image-1/image-1.5.jpg"
+      "https://images.bayut.om/thumbnails/10415535-400x300.jpeg",
+      "/placeholder2.jpg"
     ]
   },
   {
     "id": 2,
-    "slug": "محل-تجاري-معرض-الضم-والفرز",
-    "title": "محل تجاري ومعرض ممتاز",
-    "location": "طرابلس، الضم والفرز",
-    "price": "180,000",
-    "type": "للبيع",
-    "area": 220,
-    "rooms": 2,
-    "baths": 1,
-    "floor": 0,
-    "description": "معرض ومحل تجاري ذو موقع استراتيجي ممتاز على زاوية شارع تجاري رئيسي في منطقة الضم والفرز. يتميز بواجهات زجاجية واسعة وسدة (ميزانين) داخلية بدرج وتجهيزات حديثة تناسب مختلف الأنشطة التجارية.",
-    "features": [
-      "واجهة زجاجية عريضة",
-      "موقع استراتيجي على زاوية",
-      "سدة (ميزانين) داخلية",
-      "رصيف مشاة واسع",
-      "منطقة نشطة تجارياً"
-    ],
-    "mainImg": "/listings/image-2/image-2.1.jpg",
+    "slug": "apartment-muscat-2",
+    "title": "شقة مكونة من 3 غرف نوم للإيجار في القرم، مسقط",
+    "location": "القرم، مسقط",
+    "type": "للإيجار",
+    "propType": "شقة",
+    "price": "475",
+    "rooms": 3,
+    "baths": 3,
+    "area": "175 متر مربع",
+    "mainImg": "https://images.bayut.om/thumbnails/10560751-400x300.jpeg",
+    "desc": "شقة مميزة للإيجار في مسقط بموقع استراتيجي قريب من كافة الخدمات.",
     "images": [
-      "/listings/image-2/image-2.1.jpg",
-      "/listings/image-2/image-2.2.jpg",
-      "/listings/image-2/image-2.3.jpg",
-      "/listings/image-2/image-2.4.jpg"
+      "https://images.bayut.om/thumbnails/10560751-400x300.jpeg",
+      "/placeholder2.jpg"
     ]
   },
   {
     "id": 3,
-    "slug": "شقة-اقتصادية-للإيجار-التبانة",
-    "title": "شقة للإيجار - شارع حيوي",
-    "location": "طرابلس، التبانة",
-    "price": "250/شهر",
+    "slug": "apartment-muscat-3",
+    "title": "شقة مفروشة غرفتي نوم للإيجار في هضبة مسقط",
+    "location": "مسقط هيلز، مسقط",
     "type": "للإيجار",
-    "area": 100,
+    "propType": "شقة",
+    "price": "470",
     "rooms": 2,
-    "baths": 1,
-    "floor": 2,
-    "description": "شقة للإيجار بأسعار مناسبة في شارع حيوي بمنطقة التبانة، تتميز ببلاط الموزاييك التقليدي، إضاءة طبيعية جيدة، صالون ومطبخ عملي، مع بلكونة تطل مباشرة على الشارع والأسواق.",
-    "features": [
-      "أرضيات بلاط تقليدي",
-      "بلكونة مطلة على الشارع",
-      "قريبة من وسائل النقل",
-      "إضاءة طبيعية",
-      "إيجار اقتصادي"
-    ],
-    "mainImg": "/listings/image-3/image-3.1.jpg",
+    "baths": 3,
+    "area": "100 متر مربع",
+    "mainImg": "https://images.bayut.om/thumbnails/10747312-400x300.jpeg",
+    "desc": "شقة مميزة للإيجار في مسقط بموقع استراتيجي قريب من كافة الخدمات.",
     "images": [
-      "/listings/image-3/image-3.1.jpg",
-      "/listings/image-3/image-3.2.jpg",
-      "/listings/image-3/image-3.3.jpg",
-      "/listings/image-3/image-3.4.jpg"
+      "https://images.bayut.om/thumbnails/10747312-400x300.jpeg",
+      "/placeholder2.jpg"
+    ]
+  },
+  {
+    "id": 4,
+    "slug": "apartment-muscat-4",
+    "title": "شقة مفروشة ذات غرفتي نوم للإيجار في الغبرة، مسقط",
+    "location": "الغبرة، مسقط",
+    "type": "للإيجار",
+    "propType": "شقة",
+    "price": "400",
+    "rooms": 2,
+    "baths": 2,
+    "area": "105 متر مربع",
+    "mainImg": "https://images.bayut.om/thumbnails/10744689-400x300.jpeg",
+    "desc": "شقة مميزة للإيجار في مسقط بموقع استراتيجي قريب من كافة الخدمات.",
+    "images": [
+      "https://images.bayut.om/thumbnails/10744689-400x300.jpeg",
+      "/placeholder2.jpg"
+    ]
+  },
+  {
+    "id": 5,
+    "slug": "apartment-muscat-5",
+    "title": "شقة مكونة من غرفة نوم واحدة للإيجار في الحمريه، مسقط",
+    "location": "الحمرية، مسقط",
+    "type": "للإيجار",
+    "propType": "شقة",
+    "price": "250",
+    "rooms": 1,
+    "baths": 1,
+    "area": "90 متر مربع",
+    "mainImg": "https://images.bayut.om/thumbnails/10571366-400x300.jpeg",
+    "desc": "شقة مميزة للإيجار في مسقط بموقع استراتيجي قريب من كافة الخدمات.",
+    "images": [
+      "https://images.bayut.om/thumbnails/10571366-400x300.jpeg",
+      "/placeholder2.jpg"
+    ]
+  },
+  {
+    "id": 6,
+    "slug": "apartment-muscat-6",
+    "title": "شقة مكونة من غرفتي نوم للإيجار في الحمريه، مسقط",
+    "location": "الحمرية، مسقط",
+    "type": "للإيجار",
+    "propType": "شقة",
+    "price": "360",
+    "rooms": 2,
+    "baths": 2,
+    "area": "110 متر مربع",
+    "mainImg": "https://images.bayut.om/thumbnails/10565606-400x300.jpeg",
+    "desc": "شقة مميزة للإيجار في مسقط بموقع استراتيجي قريب من كافة الخدمات.",
+    "images": [
+      "https://images.bayut.om/thumbnails/10565606-400x300.jpeg",
+      "/placeholder2.jpg"
+    ]
+  },
+  {
+    "id": 7,
+    "slug": "apartment-muscat-7",
+    "title": "شقة مفروشة من 3 غرف نوم للإيجار في الموج، مسقط",
+    "location": "الموج، مسقط",
+    "type": "للإيجار",
+    "propType": "شقة",
+    "price": "2,500",
+    "rooms": 3,
+    "baths": 5,
+    "area": "274 متر مربع",
+    "mainImg": "https://images.bayut.om/thumbnails/10415559-400x300.jpeg",
+    "desc": "شقة مميزة للإيجار في مسقط بموقع استراتيجي قريب من كافة الخدمات.",
+    "images": [
+      "https://images.bayut.om/thumbnails/10415559-400x300.jpeg",
+      "/placeholder2.jpg"
+    ]
+  },
+  {
+    "id": 8,
+    "slug": "apartment-muscat-8",
+    "title": "شقة غرفتين للإيجار في بوشر، مسقط",
+    "location": "بوشر، مسقط",
+    "type": "للإيجار",
+    "propType": "شقة",
+    "price": "450",
+    "rooms": 2,
+    "baths": 3,
+    "area": "87 متر مربع",
+    "mainImg": "https://images.bayut.om/thumbnails/10758989-400x300.jpeg",
+    "desc": "شقة مميزة للإيجار في مسقط بموقع استراتيجي قريب من كافة الخدمات.",
+    "images": [
+      "https://images.bayut.om/thumbnails/10758989-400x300.jpeg",
+      "/placeholder2.jpg"
+    ]
+  },
+  {
+    "id": 9,
+    "slug": "apartment-muscat-9",
+    "title": "شقة مفروشة من غرفة نومين للايجار في المعابل، مسقط",
+    "location": "المعبيلة، مسقط",
+    "type": "للإيجار",
+    "propType": "شقة",
+    "price": "180",
+    "rooms": 2,
+    "baths": 3,
+    "area": "100 متر مربع",
+    "mainImg": "https://images.bayut.om/thumbnails/689670-400x300.jpeg",
+    "desc": "شقة مميزة للإيجار في مسقط بموقع استراتيجي قريب من كافة الخدمات.",
+    "images": [
+      "https://images.bayut.om/thumbnails/689670-400x300.jpeg",
+      "/placeholder2.jpg"
+    ]
+  },
+  {
+    "id": 10,
+    "slug": "apartment-muscat-10",
+    "title": "شقة من غرفتي نوم للإيجار في الخوير، مسقط",
+    "location": "الخوير، مسقط",
+    "type": "للإيجار",
+    "propType": "شقة",
+    "price": "220",
+    "rooms": 2,
+    "baths": 2,
+    "area": "100 متر مربع",
+    "mainImg": "https://images.bayut.om/thumbnails/10536506-400x300.jpeg",
+    "desc": "شقة مميزة للإيجار في مسقط بموقع استراتيجي قريب من كافة الخدمات.",
+    "images": [
+      "https://images.bayut.om/thumbnails/10536506-400x300.jpeg",
+      "/placeholder2.jpg"
     ]
   }
 ]

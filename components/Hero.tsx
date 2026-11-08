@@ -11,12 +11,12 @@ import {
 
 const HERO_SLIDES = [
   {
-    desktop: "/hero/desktop-hero-banner.jpg",
-    mobile: "/hero/phone-hero-banner.jpg",
+    desktop: "/hero/desktop-hero-banner.webp",
+    mobile: "/hero/phone-hero-banner.webp",
   },
   {
-    desktop: "/hero/desktop-hero-banner-2.webp",
-    mobile: "/hero/phone-hero-banner-2.webp",
+    desktop: "/hero/desktop-hero-banner-1.webp",
+    mobile: "/hero/phone-hero-banner-1.webp",
   },
 ];
 
@@ -27,32 +27,28 @@ const NAV_LINKS = [
   { label: "الرئيسية", id: "hero" },
 ];
 
-const CITIES = [
-  "الكل",
-  "طرابلس",
-  "المينا",
-  "الضم والفرز",
-  "الزاهرية",
-  "المعرض",
-  "الكورة",
-];
+// تم تعديل المدن لتشمل محافظات/ولايات ومناطق عُمانية بارزة
+const CITIES = ["الكل", "مسقط", "بوشر", "السيب", "المعبيلة", "صلالة", "صحار"];
 
+// تم تعديل أنواع العقارات لتناسب المصطلحات العُمانية (مثل: فِلّة، توين فِلّة، أرض سكنية)
 const PROP_TYPES = [
   "الكل",
   "شقة",
-  "فيلا",
+  "فِلّة",
+  "توين فِلّة",
+  "أرض سكنية",
+  "أرض تجارية",
   "مكتب",
-  "أرض",
-  "محال تجارية",
-  "عمارة",
+  "مبنى تجاري",
 ];
 
+// تم تحويل العملة إلى الريال العماني (ر.ع) وتعديل الفئات السعرية لتكون منطقية للسوق (الدولار = ~0.385 ريال عُماني)
 const PRICES = [
   { label: "الكل", value: "" },
-  { label: "أقل من $50,000", value: "50000" },
-  { label: "50,000 – 150,000 $", value: "150000" },
-  { label: "150,000 – 300,000 $", value: "300000" },
-  { label: "أكثر من 300,000 $", value: "500000" },
+  { label: "أقل من 50,000 ر.ع", value: "50000" },
+  { label: "50,000 – 100,000 ر.ع", value: "100000" },
+  { label: "100,000 – 200,000 ر.ع", value: "200000" },
+  { label: "أكثر من 200,000 ر.ع", value: "500000" }, // القيمة (value) هنا للبرمجة، يمكنك تعديلها حسب الـ backend
 ];
 
 type Step = 1 | 2 | 3 | null;
@@ -65,7 +61,7 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
   // Hero Slider State
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Auto-play interval for Hero Slider (Reduced to 3 seconds for faster transition)
+  // Auto-play interval for Hero Slider
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
@@ -97,7 +93,7 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
         : "",
     ].filter(Boolean);
 
-    return parts.length ? parts.join("، ") : "اختر المدينة، النوع، السعر";
+    return parts.length ? parts.join("، ") : "اختر المنطقة، النوع، السعر";
   };
 
   const openSheet = () => {
@@ -144,7 +140,7 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
   };
 
   const sheetTitle = () => {
-    if (step === 1) return "1. اختر المدينة / المنطقة";
+    if (step === 1) return "1. اختر المحافظة / الولاية";
     if (step === 2) return "2. اختر نوع العقار";
     if (step === 3) return "3. حدد الميزانية / السعر";
     return "";
@@ -304,7 +300,7 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
               {/* City */}
               <div className="flex-1 px-6 py-[6px] flex flex-col text-right relative">
                 <span className="text-[13px] text-gray-500 mb-[2px]">
-                  المدينة
+                  المنطقة
                 </span>
                 <div className="relative flex items-center">
                   <select
@@ -312,7 +308,7 @@ export default function HeroWithNav({ onPublish }: { onPublish: () => void }) {
                     onChange={(e) => setCity(e.target.value)}
                     className="w-full bg-transparent font-bold text-gray-900 text-[17px] outline-none cursor-pointer appearance-none pl-6 border-none font-['ThmanyahSans',sans-serif]"
                   >
-                    <option value="">اختر المدينة</option>
+                    <option value="">اختر المنطقة</option>
                     {CITIES.filter((c) => c !== "الكل").map((c) => (
                       <option key={c} value={c}>
                         {c}

@@ -10,6 +10,10 @@ import { FaWhatsapp, FaInstagram } from "react-icons/fa6";
 import { BsTelephone } from "react-icons/bs";
 
 export default function Footer() {
+  // يُفضل استخدام رقم العميل الفعلي في عُمان لاحقاً
+  const phoneNumber = "+96800000000"; // استبدله برقم العميل العُماني
+  const displayPhone = "0000 0000"; // صيغة العرض للرقم العُماني (مثال)
+
   return (
     <footer className="bg-[#f5f5f5] text-gray-800 border-t border-gray-200">
       {/* Main Footer Container */}
@@ -27,7 +31,7 @@ export default function Footer() {
             </div>
             <p className="text-sm text-gray-600 font-regular leading-relaxed max-w-xs mt-2">
               حلول عقارية متكاملة بخبرة عالية لمساعدتك في الحصول على العقار
-              المناسب بكل سهولة وأمان.
+              المناسب في سلطنة عُمان بكل سهولة وأمان.
             </p>
           </div>
 
@@ -81,36 +85,36 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <BsTelephone className="w-4 h-4 text-gray-700 flex-shrink-0" />
                 <a
-                  href="tel:+96181500175"
+                  href={`tel:${phoneNumber}`}
                   className="hover:text-[var(--blue)] transition-colors dir-ltr"
                 >
-                  81500175
+                  {displayPhone}
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <FaWhatsapp className="w-4 h-4 text-gray-700 flex-shrink-0" />
                 <a
-                  href="https://wa.me/96181500175"
+                  href={`https://wa.me/${phoneNumber.replace("+", "")}`}
                   target="_blank"
                   rel="noreferrer"
                   className="hover:text-[var(--blue)] transition-colors dir-ltr"
                 >
-                  81500175
+                  {displayPhone}
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <FiMail className="w-4 h-4 text-gray-700 flex-shrink-0" />
                 <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSd0ifRLWCYE67VCnEMabufP5FTBObMPsYpK5Ov_i6eShrptBQ/viewform?pli=1"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSd0ifRLWCYE67VCnEMabufP5FTBObMPsYpK5Ov_i6eShrptBQ/viewform?pli=1" // يُفضل تغيير رابط الفورم لاحقاً
                   className="hover:text-[var(--blue)] transition-colors dir-ltr"
                 >
-                  تقديم كمندوب عقارات
+                  التقديم كوسيط عقاري
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <FiMapPin className="w-4 h-4 text-gray-700 flex-shrink-0 mt-1" />
                 <span className="leading-relaxed">
-                  الضم والفرز - خلف حياة دونر
+                  مسقط، سلطنة عُمان - (أضف العنوان الدقيق هنا)
                 </span>
               </li>
             </ul>
@@ -123,7 +127,7 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             {/* Social Icons Pills */}
             <a
-              href="https://www.instagram.com/al_abtah.real.estate/"
+              href="https://www.instagram.com/" // تم تفريغ رابط الأبطح للعقارات (لأن هذا لعميل آخر)
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
@@ -133,7 +137,7 @@ export default function Footer() {
             </a>
 
             <a
-              href="https://wa.me/96181500175"
+              href={`https://wa.me/${phoneNumber.replace("+", "")}`}
               target="_blank"
               rel="noreferrer"
               aria-label="WhatsApp"

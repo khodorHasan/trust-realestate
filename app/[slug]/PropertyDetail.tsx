@@ -35,6 +35,9 @@ export default function PropertyDetail({
   const [animating, setAnimating] = useState(false);
   const [direction, setDirection] = useState<"left" | "right">("left");
 
+  // رقم واتساب العميل في عُمان (قم بتعديله لاحقاً)
+  const OMANI_PHONE = "+96800000000"; 
+
   const whatsappMsg = encodeURIComponent(
     `مرحباً، أود الاستفسار عن: ${p.title} — ${p.location}`,
   );
@@ -101,8 +104,8 @@ export default function PropertyDetail({
       ? [
           {
             icon: <IoBedOutline size={18} />,
-            label: `${p.rooms} غرف`,
-            sub: "عدد الغرف",
+            label: `${p.rooms} نوم`, 
+            sub: "غرف النوم",
           },
         ]
       : []),
@@ -110,12 +113,12 @@ export default function PropertyDetail({
       ? [
           {
             icon: <BiBath size={18} />,
-            label: `${p.baths} حمام`,
-            sub: "الحمامات",
+            label: `${p.baths} مياه`, 
+            sub: "دورات المياه",
           },
         ]
       : []),
-    ...(p.floor > 0
+    ...(p.floor !== undefined && p.floor > 0
       ? [
           {
             icon: <MdOutlineStairs size={18} />,
@@ -258,26 +261,28 @@ export default function PropertyDetail({
                 تفاصيل العقار
               </h2>
               <p className="text-[#5A6561] text-sm md:text-base leading-[1.7] break-words">
-                {p.description}
+                {p.desc || p.description}
               </p>
             </div>
 
             {/* Features */}
-            <div>
-              <h2 className="text-base md:text-lg font-medium text-[#0e1f1a] mb-3 pb-2.5 border-b border-[#ede9e1]">
-                المميزات
-              </h2>
-              <div className="flex flex-wrap gap-2 sm:gap-2.5">
-                {p.features.map((f, i) => (
-                  <span
-                    key={i}
-                    className="bg-[#f0f4ff] text-[#1b5ebe] border border-[#dbe4ff] rounded-[20px] px-3 sm:px-4 py-1 sm:py-1.5 text-[13px] md:text-sm font-medium"
-                  >
-                    {f}
-                  </span>
-                ))}
+            {p.features && p.features.length > 0 && (
+              <div>
+                <h2 className="text-base md:text-lg font-medium text-[#0e1f1a] mb-3 pb-2.5 border-b border-[#ede9e1]">
+                  المميزات
+                </h2>
+                <div className="flex flex-wrap gap-2 sm:gap-2.5">
+                  {p.features.map((f, i) => (
+                    <span
+                      key={i}
+                      className="bg-[#f0f4ff] text-[#1b5ebe] border border-[#dbe4ff] rounded-[20px] px-3 sm:px-4 py-1 sm:py-1.5 text-[13px] md:text-sm font-medium"
+                    >
+                      {f}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
           {/* RIGHT: Price card */}
@@ -291,9 +296,9 @@ export default function PropertyDetail({
                 <span className="text-[1.6rem] font-medium text-[#0e1f1a]">
                   {p.price}
                 </span>
-                {!p.price.includes("شهر") && (
+                {!p.price.includes("ر.ع") && !p.price.includes("شهر") && (
                   <span className="text-lg font-semibold text-[#0e1f1a]">
-                    $
+                    ر.ع
                   </span>
                 )}
               </div>
@@ -307,7 +312,7 @@ export default function PropertyDetail({
             </div>
 
             <a
-              href={`https://wa.me/96181500175?text=${whatsappMsg}`}
+              href={`https://wa.me/${OMANI_PHONE.replace('+', '')}?text=${whatsappMsg}`}
               target="_blank"
               rel="noreferrer"
               className="flex items-center justify-center gap-1.5 w-full text-white rounded-sm py-2.5 text-sm font-medium no-underline mb-3"
@@ -318,7 +323,7 @@ export default function PropertyDetail({
             </a>
 
             <a
-              href="tel:+96181500175"
+              href={`tel:${OMANI_PHONE}`}
               className="flex items-center justify-center gap-1.5 w-full bg-[#f5f5f5] text-[#0e1f1a] rounded-sm py-2.5 text-sm font-regular no-underline"
             >
               <FiPhone size={16} />
@@ -346,10 +351,10 @@ export default function PropertyDetail({
                 </p>
               </div>
               <Link
-                href="/#listings"
+                href="/search"
                 className="flex items-center text-[#1b5ebe] font-medium text-sm no-underline hover:underline"
               >
-                <span> الكل</span>
+                <span>الكل</span>
                 <FiChevronLeft size={16} />
               </Link>
             </div>
@@ -388,9 +393,9 @@ export default function PropertyDetail({
                         <span className="text-lg font-bold text-[#0e1f1a]">
                           {item.price}
                         </span>
-                        {!item.price.includes("شهر") && (
+                        {!item.price.includes("شهر") && !item.price.includes("ر.ع") && (
                           <span className="text-xs font-semibold text-[#0e1f1a]">
-                            $
+                            ر.ع
                           </span>
                         )}
                       </div>
@@ -416,13 +421,13 @@ export default function PropertyDetail({
                       {item.rooms > 0 && (
                         <div className="flex items-center gap-1">
                           <IoBedOutline size={14} className="text-[#1b5ebe]" />
-                          <span>{item.rooms} غرف</span>
+                          <span>{item.rooms} نوم</span>
                         </div>
                       )}
                       {item.baths > 0 && (
                         <div className="flex items-center gap-1">
                           <BiBath size={14} className="text-[#1b5ebe]" />
-                          <span>{item.baths} حمام</span>
+                          <span>{item.baths} مياه</span>
                         </div>
                       )}
                     </div>

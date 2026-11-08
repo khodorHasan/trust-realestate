@@ -9,15 +9,15 @@ export default function ActionCards({
 }) {
   const cards = [
     {
-      title: "هل تريد بيع أو تأجير عقارك؟",
-      desc: "شارك معنا تفاصيل عقارك وسيقوم فريقنا بمراجعة طلبك والتواصل معك لإتمام الإجراءات ونشر إعلانك في قائمة عروضنا",
-      btn: "انشر إعلانك",
+      title: "هل ترغب ببيع أو تأجير عقارك؟",
+      desc: "شارك معنا تفاصيل عقارك وسيقوم فريقنا بمراجعته والتواصل معك لإتمام الإجراءات وإدراج إعلانك ضمن عروضنا المميزة.",
+      btn: "أضف عقارك الآن",
       action: onPublish,
     },
     {
-      title: "هل تبحث عن عقار بمواصفات معينة؟",
-      desc: "إذا لم تجد العقار المناسب بين إعلاناتنا، أرسل لنا طلبك وسيتولى فريقنا البحث والتواصل معك حتى نجد ما يلائم احتياجاتك",
-      btn: "ابحث عن عقار",
+      title: "تبحث عن عقار بمواصفات معينة؟",
+      desc: "إذا لم تجد العقار المناسب ضمن عروضنا الحالية، أرسل لنا طلبك وسيتولى فريقنا البحث والتواصل معك لتوفير ما يلبي طموحك.",
+      btn: "اطلب عقاراً",
       action: onRequest,
     },
   ];
@@ -26,13 +26,12 @@ export default function ActionCards({
     <section className="py-24 px-6 md:px-12 bg-[#f5f5f5]">
       <div className="max-w-6xl mx-auto">
         {/* Section Header (Right Aligned in RTL) */}
-
         <div className="text-center md:mb-8 md:mb-16 flex flex-col items-center">
           <span className="text-sm md:text-base font-bold text-[var(--blue)] mb-2 tracking-wide">
             خدماتنا العقارية
           </span>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            كيف نستطيع مساعدتك؟
+            كيف يمكننا مساعدتك؟
           </h2>
         </div>
 
@@ -41,6 +40,7 @@ export default function ActionCards({
           {/* Subtle Vertical Divider for Desktop */}
           <div className="hidden md:block absolute top-0 bottom-0 left-1/2 w-[1px] bg-gray-300 transform -translate-x-1/2"></div>
 
+          {/* Cards Loop */}
           {cards.map((card, i) => (
             <div
               key={i}

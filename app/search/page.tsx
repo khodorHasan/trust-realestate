@@ -6,7 +6,7 @@ import {
   IoArrowForward,
 } from "react-icons/io5";
 import { BiBath, BiArea } from "react-icons/bi";
-import properties from "../data/properties.json"; // قم بتعديل المسار حسب المجلد لديك
+import properties from "../data/properties.json"; // تأكد من تحديث بيانات JSON لاحقاً لتطابق عُمان
 import Navbar from "../../components/Navbar";
 
 // دالة مساعدة لاستخراج الأرقام فقط من نصوص الأسعار
@@ -56,7 +56,7 @@ async function SearchResultsList({ searchParams }: SearchParamsProps) {
       return false;
     }
 
-    // 2. التصفية حسب المدينة/المنطقة (مثال: طرابلس)
+    // 2. التصفية حسب المدينة/المنطقة
     if (
       locationParam &&
       locationParam !== "الكل" &&
@@ -65,7 +65,7 @@ async function SearchResultsList({ searchParams }: SearchParamsProps) {
       return false;
     }
 
-    // 3. التصفية حسب نوع العقار (شقة، فيلا، مكتب...)
+    // 3. التصفية حسب نوع العقار (فلة، توين فلة، أرض...)
     if (propTypeParam && propTypeParam !== "الكل") {
       const matchTitle = p.title ? p.title.includes(propTypeParam) : false;
       const matchType = (p as any).propType
@@ -115,7 +115,7 @@ async function SearchResultsList({ searchParams }: SearchParamsProps) {
             )}
             {maxPriceParam && (
               <span className="bg-blue-50 text-[var(--blue,#1b5ebe)] px-3 py-1 rounded-full border border-blue-200 font-medium">
-                السعر الأقصى: ${maxPriceParam.toLocaleString()}
+                السعر الأقصى: {maxPriceParam.toLocaleString()} ر.ع
               </span>
             )}
           </div>
@@ -201,7 +201,7 @@ async function SearchResultsList({ searchParams }: SearchParamsProps) {
                       <div className="flex items-center gap-1.5">
                         <IoBedOutline className="w-[16px] h-[16px] flex-shrink-0" />
                         <span className="text-[13px] font-regular">
-                          {p.rooms} غرف
+                          {p.rooms} نوم
                         </span>
                       </div>
                     )}
@@ -209,7 +209,7 @@ async function SearchResultsList({ searchParams }: SearchParamsProps) {
                       <div className="flex items-center gap-1.5">
                         <BiBath className="w-[16px] h-[16px] flex-shrink-0" />
                         <span className="text-[13px] font-regular">
-                          {p.baths} حمام
+                          {p.baths} دورات مياه
                         </span>
                       </div>
                     )}
@@ -218,12 +218,13 @@ async function SearchResultsList({ searchParams }: SearchParamsProps) {
                   <div className="flex items-center justify-between mt-auto pt-3 border-t border-gray-100">
                     <div className="text-xl font-medium text-gray-900 flex items-center gap-1.5 tracking-tight">
                       <span>{p.price}</span>
-                      {!p.price.includes("شهر") && (
-                        <span className="text-lg font-medium">$</span>
+                      {/* إخفاء إشارة الدولار وإظهار ر.ع إذا لم تكن موجودة في النص الأصلي */}
+                      {!p.price.includes("ر.ع") && !p.price.includes("شهر") && (
+                        <span className="text-lg font-medium">ر.ع</span>
                       )}
                     </div>
                     <span className="bg-[var(--blue,#1b5ebe)] text-white px-5 py-2.5 rounded-xl text-xs font-light">
-                      رؤية العقار
+                      التفاصيل
                     </span>
                   </div>
                 </div>

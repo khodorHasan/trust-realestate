@@ -1,9 +1,9 @@
 import React from "react";
 
 const stats = [
-  { value: "+10", label: "عقارات متوفرة اليوم" },
-  { value: "+20", label: "عقار مباع ومؤجر" },
-  { value: "200K+", label: "نعرض العقار لأكثر من 200 ألف شخص" },
+  { value: "+10", label: "عقارات متوفرة حالياً" },
+  { value: "+20", label: "عقار تم بيعه وتأجيره" },
+  { value: "200K+", label: "مستفيد من شبكتنا العقارية" },
 ];
 
 export default function About() {
@@ -17,16 +17,16 @@ export default function About() {
 
         {/* Title */}
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-snug">
-          من نحن؟ نعرف السوق أكثر من السوق نفسه
+          من نحن؟ خبرة محلية تفهم طموحك العقاري
         </h2>
 
         {/* Paragraph */}
         <p className="text-gray-500 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-16">
           نحن وكالة{" "}
           <strong className="text-gray-900"> Trust Real Estate</strong> المتخصصة
-          في تقديم حلول عقارية شاملة للأفراد والمستثمرين في طرابلس وشمال لبنان.
-          نساعد عملاءنا في الشراء والبيع والتأجير وإدارة العقارات من خلال خدمات
-          احترافية تتميز بالشفافية والموثوقية وفهم احتياجات كل عميل.
+          في تقديم حلول عقارية متكاملة للأفراد والمستثمرين في مسقط وكافة ولايات
+          سلطنة عُمان. نساعد عملاءنا في الشراء، البيع، التأجير، وإدارة الأملاك
+          من خلال خدمات احترافية ترتكز على الشفافية والموثوقية العالية.
         </p>
 
         {/* Stats */}
