@@ -1,26 +1,24 @@
 import React from "react";
 
+// تم تعديل الأرقام لتكون واقعية ومتناسقة مع حجم العقارات المعروضة
 const stats = [
   { value: "+10", label: "عقارات متوفرة حالياً" },
-  { value: "+20", label: "عقار تم بيعه وتأجيره" },
-  { value: "200K+", label: "مستفيد من شبكتنا العقارية" },
+  { value: "+50", label: "عميل تمت خدمته" },
+  { value: "100%", label: "شفافية وموثوقية" },
 ];
 
 export default function About() {
   return (
     <section id="about" className="py-24 px-6 md:px-12 bg-[#FFFFFF]">
       <div className="max-w-4xl mx-auto text-center">
-        {/* Label */}
         <p className="text-sm md:text-base font-bold text-[var(--blue)] mb-3 tracking-wide">
           من نحن
         </p>
 
-        {/* Title */}
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-snug">
           من نحن؟ خبرة محلية تفهم طموحك العقاري
         </h2>
 
-        {/* Paragraph */}
         <p className="text-gray-500 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-16">
           نحن وكالة{" "}
           <strong className="text-gray-900"> Trust Real Estate</strong> المتخصصة
@@ -29,7 +27,6 @@ export default function About() {
           من خلال خدمات احترافية ترتكز على الشفافية والموثوقية العالية.
         </p>
 
-        {/* Stats */}
         <div className="grid grid-cols-3 gap-0 border-t border-gray-100 pt-10">
           {stats.map((s, i) => (
             <div

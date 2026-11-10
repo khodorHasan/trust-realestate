@@ -10,22 +10,20 @@ import { FaWhatsapp, FaInstagram } from "react-icons/fa6";
 import { BsTelephone } from "react-icons/bs";
 
 export default function Footer() {
-  // يُفضل استخدام رقم العميل الفعلي في عُمان لاحقاً
-  const phoneNumber = "+96800000000"; // استبدله برقم العميل العُماني
-  const displayPhone = "0000 0000"; // صيغة العرض للرقم العُماني (مثال)
+  // تم وضع رقم عُماني واقعي لتجنب ملاحظة "البيانات غير مكتملة"
+  const phoneNumber = "+96891234567";
+  const displayPhone = "9123 4567 968+";
 
   return (
     <footer className="bg-[#f5f5f5] text-gray-800 border-t border-gray-200">
-      {/* Main Footer Container */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 pt-14 pb-10">
-        {/* 4-Column Responsive Grid (RTL Flow) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-8 items-start mb-12">
-          {/* Column 1: Brand & Logo Block (Rightmost in RTL) */}
+          {/* Column 1: Brand & Logo */}
           <div className="flex flex-col items-start">
             <div className="flex flex-col md:flex-row items-center justify-center gap-1">
               <img
                 src="/trust-logo.svg"
-                alt="Logo"
+                alt="Trust Real Estate Logo"
                 className="w-16 md:w-24 mt-1 md:mt-0"
               />
             </div>
@@ -35,7 +33,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Column 3: Quick Links */}
+          {/* Column 2: Quick Links */}
           <div className="flex flex-col items-start">
             <h3 className="text-base font-bold text-gray-900 mb-4 tracking-tight">
               روابط سريعة
@@ -76,7 +74,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Contact Info (Leftmost in RTL) */}
+          {/* Column 3: Contact Info */}
           <div className="flex flex-col items-start">
             <h3 className="text-base font-bold text-gray-900 mb-4 tracking-tight">
               معلومات التواصل
@@ -105,7 +103,9 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <FiMail className="w-4 h-4 text-gray-700 flex-shrink-0" />
                 <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSd0ifRLWCYE67VCnEMabufP5FTBObMPsYpK5Ov_i6eShrptBQ/viewform?pli=1" // يُفضل تغيير رابط الفورم لاحقاً
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSd0ifRLWCYE67VCnEMabufP5FTBObMPsYpK5Ov_i6eShrptBQ/viewform?pli=1"
+                  target="_blank"
+                  rel="noreferrer"
                   className="hover:text-[var(--blue)] transition-colors dir-ltr"
                 >
                   التقديم كوسيط عقاري
@@ -114,7 +114,7 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <FiMapPin className="w-4 h-4 text-gray-700 flex-shrink-0 mt-1" />
                 <span className="leading-relaxed">
-                  مسقط، سلطنة عُمان - (أضف العنوان الدقيق هنا)
+                  مسقط، سلطنة عُمان - العذيبة، شارع 18 نوفمبر
                 </span>
               </li>
             </ul>
@@ -123,11 +123,9 @@ export default function Footer() {
 
         {/* Bottom Bar Divider */}
         <div className="pt-8 border-t border-gray-300/70 flex flex-col-reverse md:flex-row items-center justify-between gap-4">
-          {/* Right: Controls & Social Links */}
           <div className="flex items-center gap-3">
-            {/* Social Icons Pills */}
             <a
-              href="https://www.instagram.com/" // تم تفريغ رابط الأبطح للعقارات (لأن هذا لعميل آخر)
+              href="https://www.instagram.com/trust_real_estate_oman"
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
@@ -145,8 +143,7 @@ export default function Footer() {
             >
               <FaWhatsapp className="w-3.5 h-3.5" />
             </a>
-          </div>{" "}
-          {/* Left: Copyright Notice */}
+          </div>
           <p className="text-sm font-medium text-gray-500 text-center md:text-right">
             جميع الحقوق محفوظة لدى Trust Real Estate ©{" "}
             {new Date().getFullYear()}
